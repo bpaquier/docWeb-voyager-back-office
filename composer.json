@@ -1,0 +1,21 @@
+{
+    "name": "bastpaq/doc-web-voyager-back-end",
+    "authors": [
+        {
+            "name": "bastien17-dev",
+            "email": "bastien.paquier@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.5",
+        "slim/psr7": "^1.1",
+        "ext-pdo": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Config\\": "src/config",
+            "Routes\\": "src/routes"
+        }
+    }
+}
