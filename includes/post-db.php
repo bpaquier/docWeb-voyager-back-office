@@ -35,6 +35,7 @@
   ));
 
   $pdo = null;
+  redirectTo("manager");
   }else if (isset($_POST['polaroids'])){
     
 
@@ -52,4 +53,6 @@
       ));
     
       $pdo = null;
+      redirectTo("manager");
   }
+
