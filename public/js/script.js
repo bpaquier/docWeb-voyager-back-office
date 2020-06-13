@@ -9,6 +9,15 @@ const MEMBERS_IMGS = {
   jonLomberg: "./assets/jon_lomberg.jpg",
 };
 
+const SIGNS_SVGS = {
+  waves: "./assets/waves.svg",
+  record: "./assets/record.svg",
+  pulsar: "./assets/pulsar.svg",
+  hydrogen: "./assets/hydrogen.svg",
+  frames: "./assets/frames.svg",
+  elevation: "./assets/elevation.svg",
+};
+
 const LOADING_SPINNER = "./assets/oval.svg";
 
 const $inputs = document.querySelectorAll(".inputs");
@@ -16,6 +25,12 @@ const $textPreviews = document.querySelectorAll(".previews");
 const $imagePreview = document.querySelector("#img-preview");
 const $pageControl = document.querySelector("#page-control");
 const $formPolaroids = document.querySelector("#form-polaroids");
+const $formRecord = document.querySelector("#form-record");
+const $form = document.querySelector("#form");
+const $submitButton = document.querySelector("#submit");
+const $id = document.querySelector("#id");
+
+console.log($formRecord);
 
 let page = "the-journey"; // set initial page
 
@@ -70,9 +85,16 @@ $inputs.forEach((input, i) => {
 
 $pageControl.addEventListener("change", (e) => {
   page = e.target.value;
+  $imagePreview.style.backgroundColor = "#6c757d";
+  $formRecord.classList.remove("d-block");
   $formPolaroids.classList.remove("d-block");
+
   if (page === "polaroids") {
+    $submitButton.setAttribute("name", "polaroids");
     $formPolaroids.classList.add("d-block");
+  } else if (page === "record") {
+    $submitButton.setAttribute("name", "record");
+    $formRecord.classList.add("d-block");
   }
 });
 
@@ -84,12 +106,30 @@ $formPolaroids.addEventListener("change", async (e) => {
     getData("polaroids").then((rawData) => {
       console.log(rawData);
       let data = rawData.filter((member) => member.name === v);
-      let { name, title, text_1, text_2 } = data[0];
-      console.log(MEMBERS_IMGS[name]);
-
-      console.log(v, name);
+      let { name, title, text_1, text_2, id } = data[0];
+      $id.value = id;
       showData({
         imgSrc: MEMBERS_IMGS[name],
+        title,
+        text_1,
+        text_2,
+      });
+    });
+  }
+});
+
+$formRecord.addEventListener("change", async (e) => {
+  resetData();
+  let v = e.target.value;
+  if (v !== "") {
+    showLoadingWithImage();
+    getData("how_use").then((rawData) => {
+      console.log(rawData);
+      let data = rawData.filter((sign) => sign.symbol === v);
+      let { id, symbol, title, text_1, text_2 } = data[0];
+      $id.value = id;
+      showData({
+        imgSrc: SIGNS_SVGS[symbol],
         title,
         text_1,
         text_2,

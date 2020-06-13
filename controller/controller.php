@@ -8,7 +8,7 @@ function redirectTo($route){
 }
 
 function checkPass($pass){
-  if($pass == "pute"){
+  if($pass == "password"){
     
     $_SESSION['check'] = true;
     redirectTo("manager");

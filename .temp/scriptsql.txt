@@ -180,8 +180,6 @@ CREATE TABLE `voyager`.`audio_content` (
   `name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))ENGINE=InnoDB;
 
-
-
 DROP TABLE IF EXISTS the_journey;
 CREATE TABLE `voyager`.`the_journey` (
   `id` INT NOT NULL AUTO_INCREMENT,
