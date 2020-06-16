@@ -3,12 +3,12 @@
 namespace Config;
 use PDO;
 
-class PDOConnexion
+class pdoConnexion
 {
-    private $db_host = "127.0.0.1:3306";
+    private $db_host = "localhost";
     private $db_user = 'root';
     private $db_pass = 'root';
-    private $db_name = 'voyager';
+    private $db_name = 'bibliotheque';
 
     public function connect(){
         $mysql_connect_str = "mysql:host=$this->db_host;dbname=$this->db_name";
