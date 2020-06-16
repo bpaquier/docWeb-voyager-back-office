@@ -7,6 +7,7 @@ use PDO;
 class checkConnexion
 {
     private string $password;
+    private $pdo;
     private string $db_host = "custom-pcvp.mysql.eu2.frbit.com";
     private string $db_user = 'custom-pcvp';
     private string $db_pass = 'ClblgnkUMoXyy03hhy_whnlM';
@@ -16,16 +17,21 @@ class checkConnexion
         $this->password = $password;
     }
 
-    public function checkPassword():bool {
+    public function connect(): bool {
         try {
             $mysql_connect_str = "mysql:host=$this->db_host;dbname=$this->db_name";
-            $pdo = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
+            $dbConnection = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ]);
-
+            $this->pdo = $dbConnection;
+            return true;
         } catch (Exception $e) {
-            die($e->getMessage());
+            return false;
         }
+    }
+
+    public function checkPassword():bool {
+        $pdo = $this->pdo;
         $pdo->query('SELECT * FROM users where id = 1');
         $password = $pdo->fetch();
 
