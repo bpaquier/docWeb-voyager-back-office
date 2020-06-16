@@ -8,9 +8,9 @@ include_once __DIR__ . '/../includes/main.php';
 
 if (isset($_POST['password'])){
     $password = htmlspecialchars($_POST['password']);
-    echo $password;
-    $check = new checkConnexion($password);
 
+    $check = new checkConnexion($password);
+    print_r($check->checkPassword());
      if($check->checkPassword()){
          $_SESSION['checked'] = true;
          header('Location: manager.php?action=manager');
