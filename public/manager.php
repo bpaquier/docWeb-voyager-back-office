@@ -5,6 +5,12 @@ use Config\DataBaseInsertion;
 
 require_once __DIR__ . '/../config/bootstrap.php';
 
+if(!isset($_SESSION['checked'])){
+    addFlash('danger', 'You have to be connected to access at the dashboard');
+    header('Location: index.php');
+    die();
+}
+
 if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['text-1']) && isset($_POST['text-2'])){
     $id = htmlspecialchars($_POST['id']);
     $title = htmlspecialchars($_POST['title']);
@@ -14,24 +20,15 @@ if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['text-1']) && i
     $insert = new DataBaseInsertion($id, $title, $text_1, $text_2);
 
     if (isset($_POST['record'])) {
-        $connection = $insert->connect();
-        if($connection) {
-            var_dump($insert->connect());
-            $insert->addOnTableUse();
-
-        } else {
-            header('Location: index.php');
-        }
+        $insert->connect();
+        $insert->addOnTableUse();
+        addFlash('success', 'Post changed with success');
 
     } elseif (isset($_POST['polaroids'])) {
-        $connection = $insert->connect();
-        if($connection) {
-            var_dump($insert->connect());
-            $insert->addOnTableTeam();
-        } else {
+        $insert->connect();
+        $insert->addOnTableTeam();
+        addFlash('success', 'Post changed with success');
 
-            header('Location: index.php');
-        }
     }
 unset($_POST);
 }
@@ -39,6 +36,8 @@ unset($_POST);
 include_once __DIR__ . '/../includes/header.php';
 
 include_once __DIR__ . '/../includes/main.php';
+
+include_once __DIR__ . '/../includes/flashes.php';
 
 include_once __DIR__ . '/../includes/displayer.php';
 

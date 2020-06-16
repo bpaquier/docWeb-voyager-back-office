@@ -11,25 +11,38 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-  <a class="navbar-brand" href="#">Voyager Manager</a>
+  <a class="navbar-brand" href="index.php">Voyager Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link
+      <a
+          class="nav-item nav-link
       <?php
       if (isset($_GET['action']) && $_GET['action'] === "login")
       {
           echo "active";
       } ?>
-        " href="index.php?action=login">Login<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" target="_blank" href="#">Voyager Website</a>
+        " href="<?php
+      if(isset($_SESSION['checked'])){
+          echo 'logout.php';
+      } else {
+          echo 'login.php?action=login';
+      }?>"><?php
+            if(isset($_SESSION['checked'])){
+                echo 'Log Out';
+            } else {
+                echo 'Log In';
+            }
+          ?> <span class="sr-only">(current)</span></a>
+
       <a class="nav-item nav-link <?php
       if (isset($_GET['action']) && $_GET['action'] === "manager")
       {
           echo "active";
-      } ?>" href="index.php?action=manager">Manager</a>
+      } ?>" href="manager.php?action=manager">Dashboard</a>
+        <a class="nav-item nav-link" target="_blank" href="https://golden-record.netlify.app/#/">Visit Voyager Website</a>
     </div>
   </div>
 </nav>
