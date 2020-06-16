@@ -1,5 +1,7 @@
 <?php
 
+use Config\checkConnexion;
+
 require_once __DIR__ . '/../config/bootstrap.php';
 
 include_once __DIR__ . '/../includes/header.php';

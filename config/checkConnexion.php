@@ -1,5 +1,7 @@
 <?php
 
+namespace Config;
+
 use PDO;
 
 class checkConnexion
