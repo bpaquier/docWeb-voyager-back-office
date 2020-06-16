@@ -11,7 +11,7 @@ if (isset($_POST['password'])){
 
     $check = new checkConnexion($password);
     print_r($check->checkPassword());
-     if($check->checkPassword()){
+     /*if($check->checkPassword()){
          $_SESSION['checked'] = true;
          header('Location: manager.php?action=manager');
          addFlash('dark', 'Welcome on your dashboard');
@@ -20,7 +20,7 @@ if (isset($_POST['password'])){
          addFlash('danger', 'Password incorrect');
          header('Location: login.php?action=login');
          die();
-     }
+     }*/
 
 }
 
