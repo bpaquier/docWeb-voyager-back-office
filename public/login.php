@@ -12,6 +12,7 @@ if (isset($_POST['password'])){
     $password = htmlspecialchars($_POST['password']);
 
     $check = new checkConnexion($password);
+    $check->connect();
     $isPasswordOk = $check->checkPassword();
      if($check->checkPassword()){
          echo 'ok';
