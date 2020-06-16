@@ -18,9 +18,10 @@ class checkConnexion
         $pdo = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
-        $pdo->prepare('SELECT password FROM users where id = "1"');
+        $pdo->prepare('SELECT * FROM users where id = 1');
+        $pdo->execute();
         $password = $pdo->fetch();
-        if(password_verify($this->password, $password))
+        if(password_verify($this->password, $password['password']))
         {
             return true;
         }
