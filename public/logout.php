@@ -2,10 +2,13 @@
 
 require_once __DIR__ . '/../config/bootstrap.php';
 
-unset($_SESSION['checked']);
+if(isset($_SESSION['checked'])) {
 
-addFlash('success', 'you have been disconnected');
+    unset($_SESSION['checked']);
 
-header('Location: index.php');
+    addFlash('success', 'you have been disconnected');
+}
+    header('Location: index.php');
+
 
 
