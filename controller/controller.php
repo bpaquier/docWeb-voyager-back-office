@@ -13,7 +13,5 @@ function checkPass($pass){
     $_SESSION['check'] = true;
     redirectTo("manager");
   }
-  
-  
 }
 

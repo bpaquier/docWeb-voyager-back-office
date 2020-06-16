@@ -8,8 +8,6 @@ if(isset($_SESSION['check'])){
 
 include '../includes/post-db.php';
   if(isset($_GET['action'])) {
-   
-
     if($_GET['action'] == "login" ){
       if(isset($_SESSION['check'])){
         redirectTo("manager");
