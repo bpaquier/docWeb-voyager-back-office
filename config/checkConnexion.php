@@ -17,7 +17,7 @@ class checkConnexion
         $this->password = $password;
     }
 
-    public function connect(): bool {
+    /*public function connect(): bool {
         try {
             $mysql_connect_str = "mysql:host=$this->db_host;dbname=$this->db_name";
             $dbConnection = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
@@ -28,13 +28,18 @@ class checkConnexion
         } catch (Exception $e) {
             return false;
         }
-    }
+    }*/
 
     public function checkPassword():bool {
-        $pdo = $this->pdo;
+        /*$pdo = $this->pdo;
         $pdo->query('SELECT * FROM users where id = 1');
         $password = $pdo->fetch();
 
-        return password_verify($this->password, $password['password']);
+        return password_verify($this->password, $password['password']);*/
+        if($this->password === 'password'){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
