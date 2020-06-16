@@ -41,7 +41,7 @@ class DataBaseInsertion {
     }
 
     public function addOnTableUse():void {
-        $pdo = $this->pdo;
+        /*$pdo = $this->pdo;
         $stmt = $pdo->prepare('UPDATE how_to_use_it
             SET title = :title, text_1 = :text_1, text_2 = :text_2
             WHERE id = :id');
@@ -50,15 +50,15 @@ class DataBaseInsertion {
             ':title' => $this->title ,
             'text_1' => $this->text_1,
             'text_2' => $this->text_2 ,
-        ));
-        /*
+        ));*/
+
         $pdo = $this->pdo;
         $req = $pdo->prepare('INSERT INTO users (name, password) VALUES (:name, :pass)');
         $req->execute([
             "name" => 'Manager',
             "pass" => password_hash('voyager', PASSWORD_DEFAULT)
         ]);
-        */
+
     }
 
     public function addOnTableTeam():void {

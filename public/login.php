@@ -12,7 +12,7 @@ if (isset($_POST['password'])){
     $password = htmlspecialchars($_POST['password']);
 
     $check = new checkConnexion($password);
-    //$check->connect();
+    $check->connect();
     $isPasswordOk = $check->checkPassword();
      if($check->checkPassword()){
 
@@ -25,7 +25,6 @@ if (isset($_POST['password'])){
          header('Location: login.php?action=login');
          die();
      }
-
 }
 
 include_once __DIR__ . '/../includes/sign-in-form.php';

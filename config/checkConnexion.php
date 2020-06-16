@@ -32,11 +32,11 @@ class checkConnexion
 
     public function checkPassword():bool {
         $pdo = $this->pdo;
-        $pdo->prepare('SELECT * FROM users WHERE id = :id');
-        $pdo->execute([
+        $stmt = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+        $stmt->execute([
             "id" => 1
         ]);
-        $user = $pdo->fetch();
+        $user = $stmt->fetch();
 
         return password_verify($this->password, $user['password']);
         /*if($this->password === 'password'){
