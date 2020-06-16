@@ -18,9 +18,9 @@ if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['text-1']) && i
         if($connection) {
             var_dump($insert->connect());
             $insert->addOnTableUse();
-            echo 'coucou';
+
         } else {
-            var_dump($insert->connect());
+            header('Location: index.php');
         }
 
     } elseif (isset($_POST['polaroids'])) {
@@ -29,8 +29,8 @@ if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['text-1']) && i
             var_dump($insert->connect());
             $insert->addOnTableTeam();
         } else {
-            echo 'coucou';
-            var_dump($insert->connect());
+
+            header('Location: index.php');
         }
     }
 unset($_POST);
