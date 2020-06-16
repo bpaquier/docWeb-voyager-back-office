@@ -10,7 +10,7 @@ if (isset($_POST['password'])){
     $password = htmlspecialchars($_POST['password']);
 
     $check = new checkConnexion($password);
-    print_r($check->checkPassword());
+    echo $check->checkPassword();
      /*if($check->checkPassword()){
          $_SESSION['checked'] = true;
          header('Location: manager.php?action=manager');
