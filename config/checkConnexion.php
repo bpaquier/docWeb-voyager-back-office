@@ -16,7 +16,7 @@ class checkConnexion
         $this->password = $password;
     }
 
-    public function checkPassword() {
+    public function checkPassword():bool {
         try {
             $mysql_connect_str = "mysql:host=$this->db_host;dbname=$this->db_name";
             $pdo = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
@@ -28,8 +28,7 @@ class checkConnexion
         }
         $pdo->query('SELECT * FROM users where id = 1');
         $password = $pdo->fetch();
-        return $password;
-        //return password_verify($this->password, $password['password']);
 
+        return password_verify($this->password, $password['password']);
     }
 }

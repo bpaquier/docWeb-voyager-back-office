@@ -12,17 +12,19 @@ if (isset($_POST['password'])){
     $password = htmlspecialchars($_POST['password']);
 
     $check = new checkConnexion($password);
-    echo $check->checkPassword();
-     /*if($check->checkPassword()){
-         $_SESSION['checked'] = true;
+    $isPasswordOk = $check->checkPassword();
+     if($check->checkPassword()){
+         echo 'ok';
+         /*$_SESSION['checked'] = true;
          header('Location: manager.php?action=manager');
          addFlash('dark', 'Welcome on your dashboard');
-         die();
+         die();*/
      } else {
-         addFlash('danger', 'Password incorrect');
+         echo 'pas ok';
+         /*addFlash('danger', 'Password incorrect');
          header('Location: login.php?action=login');
-         die();
-     }*/
+         die();*/
+     }
 
 }
 
