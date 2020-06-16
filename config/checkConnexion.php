@@ -1,5 +1,6 @@
 <?php
 
+use PDO;
 
 class checkConnexion
 {
@@ -14,13 +15,18 @@ class checkConnexion
     }
 
     public function checkPassword():bool {
-        $mysql_connect_str = "mysql:host=$this->db_host;dbname=$this->db_name";
-        $pdo = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
-        $pdo->prepare('SELECT * FROM users where id = 1');
-        $pdo->execute();
-        $password = $pdo->fetch();
+        try {
+            $mysql_connect_str = "mysql:host=$this->db_host;dbname=$this->db_name";
+            $pdo = new PDO($mysql_connect_str, $this->db_user, $this->db_pass, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
+            $pdo->prepare('SELECT * FROM users where id = 1');
+            $pdo->execute();
+            $password = $pdo->fetch();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+
         if(password_verify($this->password, $password['password']))
         {
             return true;
