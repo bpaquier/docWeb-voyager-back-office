@@ -6,10 +6,10 @@ use PDO;
 
 
 class DataBaseInsertion {
-    private string $db_host = "localhost:8889";
-    private string $db_user = 'root';
-    private string $db_pass = 'root';
-    private string $db_name = 'bibliotheque';
+    private string $db_host = "custom-pcvp.mysql.eu2.frbit.com";
+    private string $db_user = 'custom-pcvp';
+    private string $db_pass = 'ClblgnkUMoXyy03hhy_whnlM';
+    private string $db_name = 'custom-pcvp';
     private $pdo;
     private string $id;
     private string $title;
