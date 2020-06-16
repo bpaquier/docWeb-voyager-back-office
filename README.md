@@ -12,7 +12,7 @@ This site has been created for educational purposes as part of the Bachelor's cu
 
 ### Live demo
 
-Back-office is deployed [here]()
+Back-office is deployed [here](https://custom-njhs.frb.io/index.php)
 
 ### Installing
 
