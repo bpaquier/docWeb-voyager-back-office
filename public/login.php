@@ -8,7 +8,7 @@ include_once __DIR__ . '/../includes/main.php';
 
 if (isset($_POST['password'])){
     $password = htmlspecialchars($_POST['password']);
-
+    echo $password;
     $check = new checkConnexion($password);
 
      if($check->checkPassword()){
