@@ -1,0 +1,17 @@
+{
+    "name": "bastpaq/doc-web-voyager-back-office",
+    "authors": [
+        {
+            "name": "bastien17-dev",
+            "email": "bastien.paquier@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Config\\": "src/config"
+        }
+    }
+}

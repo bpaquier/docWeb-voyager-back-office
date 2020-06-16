@@ -1,5 +1,5 @@
 const URL_API =
-  "https://cors-anywhere.herokuapp.com/https://custom-cwxn.frb.io/query";
+  "https://custom-pcvp.frb.io/query";
 
 const MEMBERS_IMGS = {
   annDruyan: "./assets/ann_druyan.jpg",

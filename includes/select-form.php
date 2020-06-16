@@ -1,4 +1,4 @@
-<form class="m-auto" style="width: 1000px;" id="form" method="POST" action="index.php">
+<form class="m-auto" style="width: 1000px;" id="form" method="POST" action="manager.php">
 <div class="form-group">
     <label for="page">Select page</label>
     <select  name="page" class="form-control" id="page-control">

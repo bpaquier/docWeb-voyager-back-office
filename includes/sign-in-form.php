@@ -1,4 +1,4 @@
-<form action="index.php?action=check-pass" method="POST" class=" w-50 p-3 m-auto d-flex flex-column justify-content-center">
+<form action="login.php" method="POST" class=" w-50 p-3 m-auto d-flex flex-column justify-content-center">
 <h4 class="d-flex justify-content-center">Please enter your password</h4>
   <div class="form-group ">
     <label for="exampleInputPassword1">Password</label>
