@@ -14,11 +14,24 @@ if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['text-1']) && i
     $insert = new DataBaseInsertion($id, $title, $text_1, $text_2);
 
     if (isset($_POST['record'])) {
-        $insert->connect();
-        $insert->addOnTableUse();
+        $connection = $insert->connect();
+        if($connection) {
+            var_dump($insert->connect());
+            $insert->addOnTableUse();
+            echo 'coucou';
+        } else {
+            var_dump($insert->connect());
+        }
+
     } elseif (isset($_POST['polaroids'])) {
-        $insert->connect();
-        $insert->addOnTableTeam();
+        $connection = $insert->connect();
+        if($connection) {
+            var_dump($insert->connect());
+            $insert->addOnTableTeam();
+        } else {
+            echo 'coucou';
+            var_dump($insert->connect());
+        }
     }
 unset($_POST);
 }
