@@ -8,6 +8,8 @@ const MEMBERS_IMGS = {
   jonLomberg: "./assets/jon_lomberg.jpg",
 };
 
+const EARTH_LOGO = "./assets/earth-logo.png";
+
 const SIGNS_SVGS = {
   waves: "./assets/waves.svg",
   record: "./assets/record.svg",
@@ -61,9 +63,8 @@ function resetData() {
 
 function showData(data) {
   let { imgSrc, title, text_1, text_2, text_3 } = data;
-  console.log(data.text_1);
   if (data.text_3 !== undefined) {
-    $imagePreview.src = "";
+    $imagePreview.src = EARTH_LOGO;
     $textPreviews[1].value = text_1;
     $textPreviews[2].value = text_2;
     $textPreviews[3].value = text_3;
