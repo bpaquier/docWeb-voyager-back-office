@@ -11,7 +11,7 @@ if(!isset($_SESSION['checked'])){
     die();
 }
 
-if(isset($_POST['record']) || isset($_POST['polaroids'])){
+if(isset($_POST['record']) || isset($_POST['polaroids']) || isset($_POST['the-journey'])){
     $id = htmlspecialchars($_POST['id']);
     $title = htmlspecialchars($_POST['title']);
     $text_1 = htmlspecialchars($_POST['text-1']);
@@ -30,6 +30,10 @@ if(isset($_POST['record']) || isset($_POST['polaroids'])){
         $insert->addOnTableTeam();
         addFlash('success', 'Post changed with success');
 
+    } elseif (isset($_POST['the-journey'])) {
+        $insert->connect();
+        $insert->addOnTableJourney();
+        addFlash('success', 'Post changed with success');
     }
 unset($_POST);
 }
