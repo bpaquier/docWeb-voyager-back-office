@@ -11,7 +11,7 @@ if(!isset($_SESSION['checked'])){
     die();
 }
 
-if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['text-1']) && isset($_POST['text-2'])){
+if(isset($_POST['record']) || isset($_POST['polaroids'])){
     $id = htmlspecialchars($_POST['id']);
     $title = htmlspecialchars($_POST['title']);
     $text_1 = htmlspecialchars($_POST['text-1']);
