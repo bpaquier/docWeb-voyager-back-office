@@ -13,10 +13,10 @@ if(!isset($_SESSION['checked'])){
 
 if(isset($_POST['record']) || isset($_POST['polaroids']) || isset($_POST['the-journey'])){
     $id = htmlspecialchars($_POST['id']);
-    $title = htmlspecialchars($_POST['title']);
-    $text_1 = htmlspecialchars($_POST['text-1']);
-    $text_2 = htmlspecialchars($_POST['text-2']);
-    $text_3 = htmlspecialchars($_POST['text-3']);
+    $title = htmlspecialchars($_POST['title'] ?? '');
+    $text_1 = htmlspecialchars($_POST['text-1'] ?? '');
+    $text_2 = htmlspecialchars($_POST['text-2'] ?? '');
+    $text_3 = htmlspecialchars($_POST['text-3'] ?? '');
 
 
 
