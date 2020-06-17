@@ -38,16 +38,16 @@
   <input type="text" readonly id="id" name="id" class="d-none" >
   <div id="form-title" class="d-none" class="form-group">
     <label for="title">Title</label>
-    <input name="title" required class="form-control inputs" rows="3"/>
+    <input name="title"  class="form-control inputs" rows="3"/>
   </div>
 
   <div class="form-group">
     <label   for="text-1">Text 1</label>
-    <textarea name="text-1" required class="form-control inputs" rows="3"></textarea>
+    <textarea name="text-1"  class="form-control inputs" rows="3"></textarea>
   </div>
   <div class="form-group">
     <label for="text-2">Text 2</label>
-    <textarea name="text-2" required class="form-control inputs" rows="3"></textarea>
+    <textarea name="text-2"  class="form-control inputs" rows="3"></textarea>
   </div>
    <!-- FORM THE JOURNEY, INITAL STATE = DISPLAY NONE -->
     <div class="form-group" id="form-the-journey">
