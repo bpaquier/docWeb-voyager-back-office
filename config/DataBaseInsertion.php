@@ -124,12 +124,12 @@ class DataBaseInsertion {
                 'text_3' => $newText_3 ,
             ));
 
-            $lastId = $pdo->lastInsertId();
+            $lastId = $stmt->lastInsertId();
 
             if($lastId > 0) {
-                return true;
+                return $lastId;
             } else {
-                return false;
+                return $lastId;
             }
 
     }
