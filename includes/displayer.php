@@ -1,7 +1,7 @@
 <div class="card mb-3 m-auto" style="width: 1000px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="../public/assets/earth-logo.png" style="max-height : 400px; max-width : 400px; min-height:300px; min-width:300px; background-color: #6c757d;" class="card-img image-preview" id="img-preview" alt="preview">
+      <img src="./../public/assets/earth-logo.png" style="max-height : 400px; max-width : 400px; min-height:300px; min-width:300px; background-color: #6c757d;" class="card-img image-preview" id="img-preview" alt="preview">
     </div>
     <div class="col-md-8">
       <div class="card-body">
