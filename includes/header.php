@@ -42,7 +42,7 @@
       {
           echo "active";
       } ?>" href="manager.php?action=manager">Dashboard</a>
-        <a class="nav-item nav-link" target="_blank" href="https://golden-record.netlify.app/#/">Visit Voyager Website</a>
+        <a class="nav-item nav-link" target="_blank" href="https://golden-record.netlify.app/#/">Visit Voyager Website :)</a>
     </div>
   </div>
 </nav>
