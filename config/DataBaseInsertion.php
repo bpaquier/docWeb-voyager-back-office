@@ -45,7 +45,7 @@ class DataBaseInsertion {
     public function addOnTableUse():void {
         $pdo = $this->pdo;
 
-        $prevInfos = $pdo->prepare('SELECT * FROM polaroids WHERE id = :id');
+        $prevInfos = $pdo->prepare('SELECT * FROM how_to_use_it WHERE id = :id');
         $prevInfos->execute([
             'id' => $this->id
         ]);
