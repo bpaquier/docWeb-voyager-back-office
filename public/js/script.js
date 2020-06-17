@@ -61,6 +61,7 @@ function resetData() {
 
 function showData(data) {
   let { imgSrc, title, text_1, text_2, text_3 } = data;
+  console.log(data);
   if (data.text_3 !== undefined) {
     $imagePreview.src = "";
     $textPreviews[1].value = text_1;
