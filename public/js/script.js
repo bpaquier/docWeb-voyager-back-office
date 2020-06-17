@@ -135,7 +135,7 @@ $formPolaroids.addEventListener("change", async (e) => {
   let v = e.target.value;
   if (v !== "") {
     showLoadingWithoutImage();
-    getData("journey").then((rawData) => {
+    getData("polaroids").then((rawData) => {
       let data = rawData.filter((member) => member.name === v);
       let { name, title, text_1, text_2, id } = data[0];
       $id.value = id;
