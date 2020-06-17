@@ -31,6 +31,7 @@ if(isset($_POST['record']) || isset($_POST['polaroids']) || isset($_POST['the-jo
         addFlash('success', 'Post changed with success');
 
     } elseif (isset($_POST['the-journey'])) {
+        print_r($_POST);
         $insert->connect();
         $insert->addOnTableJourney();
         addFlash('success', 'Post changed with success');
