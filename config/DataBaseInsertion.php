@@ -124,12 +124,12 @@ class DataBaseInsertion {
                 'text_3' => $newText_3 ,
             ));
 
-            $lastId = $stmt->lastInsertId();
 
-            if($lastId > 0) {
-                return $lastId;
+
+            if(!$stmt) {
+                return false;
             } else {
-                return $lastId;
+                return true;
             }
 
     }
