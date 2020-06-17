@@ -17,14 +17,16 @@ class DataBaseInsertion {
     private string $title;
     private string $text_1;
     private string $text_2;
+    private string $text_3;
 
 
-    public function __construct(string $id, string $title, string $text_1, string $text_2)
+    public function __construct(string $id, string $title, string $text_1, string $text_2, string $text_3)
     {
         $this->id = $id;
         $this->title = $title;
         $this->text_1 = $text_1;
         $this->text_2 = $text_2;
+        $this->text_3 = $text_3;
     }
 
     public function connect(): bool {
@@ -46,8 +48,8 @@ class DataBaseInsertion {
             SET title = :title, text_1 = :text_1, text_2 = :text_2
             WHERE id = :id');
         $stmt->execute(array(
-            ':id' =>  $this->id,
-            ':title' => $this->title ,
+            'id' =>  $this->id,
+            'title' => $this->title ,
             'text_1' => $this->text_1,
             'text_2' => $this->text_2 ,
         ));
@@ -64,12 +66,18 @@ class DataBaseInsertion {
 
     public function addOnTableTeam():void {
         $pdo = $this->pdo;
+
+        /*$prevInfos = $pdo->prepare('SELECT * FROM polaroids WHERE id = :id');
+        $prevInfos->execute([
+
+        ])*/
+
         $stmt = $pdo->prepare('UPDATE polaroids
       SET title = :title, text_1 = :text_1, text_2 = :text_2
       WHERE id = :id');
         $stmt->execute(array(
-            ':id' =>  $this->id,
-            ':title' => $this->title ,
+            'id' =>  $this->id,
+            'title' => $this->title ,
             'text_1' => $this->text_1,
             'text_2' => $this->text_2 ,
         ));
