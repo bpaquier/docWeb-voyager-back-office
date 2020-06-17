@@ -73,9 +73,9 @@ class DataBaseInsertion {
         ]);
         $infos = $prevInfos->fetch();
 
-        strlen($this->title) > 0 ? $newTitle = $this->title  : $newTitle = $prevInfos['title'];
-        strlen($this->text_1) > 0 ? $newText_1 = $this->text_1  : $newText_1 = $prevInfos['text_1'];
-        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2  : $newText_2 = $prevInfos['text_2'];
+        strlen($this->title) > 0 ? $newTitle = $this->title  : $newTitle = $infos['title'];
+        strlen($this->text_1) > 0 ? $newText_1 = $this->text_1  : $newText_1 = $infos['text_1'];
+        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2  : $newText_2 = $infos['text_2'];
 
         $stmt = $pdo->prepare('UPDATE polaroids
       SET title = :title, text_1 = :text_1, text_2 = :text_2
