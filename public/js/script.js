@@ -8,7 +8,7 @@ const MEMBERS_IMGS = {
   jonLomberg: "./assets/jon_lomberg.jpg",
 };
 
-const EARTH_LOGO = "./assets/voyager_journey.png";
+const EARTH_LOGO = "./assets/earth-logo.png";
 
 const SIGNS_SVGS = {
   waves: "./assets/waves.svg",
