@@ -16,8 +16,9 @@ if(isset($_POST['record']) || isset($_POST['polaroids'])){
     $title = htmlspecialchars($_POST['title']);
     $text_1 = htmlspecialchars($_POST['text-1']);
     $text_2 = htmlspecialchars($_POST['text-2']);
+    $text_3 = htmlspecialchars($_POST['text-3']);
 
-    $insert = new DataBaseInsertion($id, $title, $text_1, $text_2);
+    $insert = new DataBaseInsertion($id, $title, $text_1, $text_2, $text_3);
 
     if (isset($_POST['record'])) {
         $insert->connect();

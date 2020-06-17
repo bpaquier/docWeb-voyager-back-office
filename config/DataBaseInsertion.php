@@ -67,19 +67,24 @@ class DataBaseInsertion {
     public function addOnTableTeam():void {
         $pdo = $this->pdo;
 
-        /*$prevInfos = $pdo->prepare('SELECT * FROM polaroids WHERE id = :id');
+        $prevInfos = $pdo->prepare('SELECT * FROM polaroids WHERE id = :id');
         $prevInfos->execute([
+            'id' => $this->id
+        ]);
+        $infos = $prevInfos->fetch();
 
-        ])*/
+        strlen($this->title) > 0 ? $newTitle = $this->title  : $newTitle = $prevInfos['title'];
+        strlen($this->text_1) > 0 ? $newText_1 = $this->text_1  : $newText_1 = $prevInfos['text_1'];
+        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2  : $newText_2 = $prevInfos['text_2'];
 
         $stmt = $pdo->prepare('UPDATE polaroids
       SET title = :title, text_1 = :text_1, text_2 = :text_2
       WHERE id = :id');
         $stmt->execute(array(
             'id' =>  $this->id,
-            'title' => $this->title ,
-            'text_1' => $this->text_1,
-            'text_2' => $this->text_2 ,
+            'title' => $newTitle ,
+            'text_1' => $newText_1,
+            'text_2' => $newText_2 ,
         ));
     }
 }
