@@ -44,14 +44,25 @@ class DataBaseInsertion {
 
     public function addOnTableUse():void {
         $pdo = $this->pdo;
+
+        $prevInfos = $pdo->prepare('SELECT * FROM polaroids WHERE id = :id');
+        $prevInfos->execute([
+            'id' => $this->id
+        ]);
+        $infos = $prevInfos->fetch();
+
+        strlen($this->title) > 0 ? $newTitle = $this->title  : $newTitle = $infos['title'];
+        strlen($this->text_1) > 0 ? $newText_1 = $this->text_1  : $newText_1 = $infos['text_1'];
+        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2  : $newText_2 = $infos['text_2'];
+
         $stmt = $pdo->prepare('UPDATE how_to_use_it
             SET title = :title, text_1 = :text_1, text_2 = :text_2
             WHERE id = :id');
         $stmt->execute(array(
             'id' =>  $this->id,
-            'title' => $this->title ,
-            'text_1' => $this->text_1,
-            'text_2' => $this->text_2 ,
+            'title' => $newTitle ,
+            'text_1' => $newText_1,
+            'text_2' => $newText_2 ,
         ));
 
         /*
