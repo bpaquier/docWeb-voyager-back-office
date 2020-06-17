@@ -7,7 +7,7 @@ use PDO;
 class checkConnexion
 {
     private string $password;
-    private $pdo;
+    private object $pdo;
     private string $db_host = "custom-pcvp.mysql.eu2.frbit.com";
     private string $db_user = 'custom-pcvp';
     private string $db_pass = 'ClblgnkUMoXyy03hhy_whnlM';
@@ -39,10 +39,5 @@ class checkConnexion
         $user = $stmt->fetch();
 
         return password_verify($this->password, $user['password']);
-        /*if($this->password === 'password'){
-            return true;
-        } else {
-            return false;
-        }*/
     }
 }

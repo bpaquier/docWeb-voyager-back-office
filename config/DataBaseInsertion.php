@@ -5,6 +5,7 @@ namespace Config;
 
 
 use PDO;
+use PDOException;
 
 
 class DataBaseInsertion {
@@ -12,7 +13,7 @@ class DataBaseInsertion {
     private string $db_user = 'custom-pcvp';
     private string $db_pass = 'ClblgnkUMoXyy03hhy_whnlM';
     private string $db_name = 'custom-pcvp';
-    private $pdo;
+    private object $pdo;
     private string $id;
     private string $title;
     private string $text_1;
@@ -37,7 +38,7 @@ class DataBaseInsertion {
             ]);
             $this->pdo = $dbConnection;
             return true;
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             return false;
         }
     }
@@ -99,28 +100,38 @@ class DataBaseInsertion {
         ));
     }
 
-    public function addOnTableJourney():void {
-        $pdo = $this->pdo;
+    public function addOnTableJourney():bool {
 
-        $prevInfos = $pdo->prepare('SELECT * FROM journey WHERE id = :id');
-        $prevInfos->execute([
-            'id' => $this->id
-        ]);
-        $infos = $prevInfos->fetch();
+            $pdo = $this->pdo;
 
-        strlen($this->text_1) > 0 ? $newText_1 = $this->text_1 : $newText_1 = $infos['text_1'];
-        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2 : $newText_2 = $infos['text_2'];
-        strlen($this->text_3) > 0 ? $newText_3 = $this->text_3 : $newText_3 = $infos['text_3'];
+            $prevInfos = $pdo->prepare('SELECT * FROM journey WHERE id = :id');
+            $prevInfos->execute([
+                'id' => $this->id
+            ]);
+            $infos = $prevInfos->fetch();
 
-        $stmt = $pdo->prepare('UPDATE journey
-      SET  text_1 = :text_1, text_2 = :text_2, text_3 = :text_3
-      WHERE id = :id');
-        $stmt->execute(array(
-            'id' =>  $this->id,
-            'text_1' => $newText_1,
-            'text_2' => $newText_2 ,
-            'text_3' => $newText_3 ,
-        ));
+            strlen($this->text_1) > 0 ? $newText_1 = $this->text_1 : $newText_1 = $infos['text_1'];
+            strlen($this->text_2) > 0 ? $newText_2 = $this->text_2 : $newText_2 = $infos['text_2'];
+            strlen($this->text_3) > 0 ? $newText_3 = $this->text_3 : $newText_3 = $infos['text_3'];
+
+            $stmt = $pdo->prepare('UPDATE journey
+          SET  text_1 = :text_1, text_2 = :text_2, text_3 = :text_3
+          WHERE id = :id');
+            $stmt->execute(array(
+                'id' =>  $this->id,
+                'text_1' => $newText_1,
+                'text_2' => $newText_2 ,
+                'text_3' => $newText_3 ,
+            ));
+
+            $lastId = $pdo->lastInsertId();
+
+            if($lastId > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
     }
 }
 
