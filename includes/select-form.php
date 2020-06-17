@@ -33,10 +33,10 @@
       <option value="hydrogen">Hydrogen Atoms</option>
     </select>
   </div>
-  <!-------------------------------------------->
+  <!--------------------------- ----------------->
 
-  <input type="text" readonly id="id" name="id" class="d-none">
-  <div class="form-group">
+  <input type="text" readonly id="id" name="id" class="d-none" >
+  <div id="form-title" class="d-none" class="form-group">
     <label for="title">Title</label>
     <input name="title" required class="form-control inputs" rows="3"/>
   </div>
@@ -49,5 +49,11 @@
     <label for="text-2">Text 2</label>
     <textarea name="text-2" required class="form-control inputs" rows="3"></textarea>
   </div>
+   <!-- FORM THE JOURNEY, INITAL STATE = DISPLAY NONE -->
+<div class="form-group" id="form-the-journey">
+    <label for="text-3">Text 3</label>
+    <textarea  required name="text-3" class="form-control inputs" rows="3"></textarea>
+  </div>
+<!-------------------------------------------->
   <button type="submit" id="submit" name="record" class="btn btn-primary">Submit</button>
 </form>

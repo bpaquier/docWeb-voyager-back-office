@@ -1,5 +1,4 @@
-const URL_API =
-  "https://custom-pcvp.frb.io/query";
+const URL_API = "https://custom-pcvp.frb.io/query";
 
 const MEMBERS_IMGS = {
   annDruyan: "./assets/ann_druyan.jpg",
@@ -26,6 +25,11 @@ const $imagePreview = document.querySelector("#img-preview");
 const $pageControl = document.querySelector("#page-control");
 const $formPolaroids = document.querySelector("#form-polaroids");
 const $formRecord = document.querySelector("#form-record");
+const $formTitle = document.querySelector("#form-title");
+const $formTheJourney = document.querySelector("#form-the-journey");
+const $previewText3 = document.querySelectorAll(".preview-text-3");
+const $previewTitle = document.querySelectorAll(".preview-title");
+
 const $form = document.querySelector("#form");
 const $submitButton = document.querySelector("#submit");
 const $id = document.querySelector("#id");
@@ -57,10 +61,17 @@ function resetData() {
 
 function showData(data) {
   let { imgSrc, title, text_1, text_2 } = data;
-  $imagePreview.src = imgSrc;
-  $textPreviews[0].value = title;
-  $textPreviews[1].value = text_1;
-  $textPreviews[2].value = text_2;
+  if (data.text_3 !== undefined) {
+    $imagePreview.src = "";
+    $textPreviews[1].value = text_1;
+    $textPreviews[2].value = text_2;
+    $textPreviews[3].value = text_3;
+  } else {
+    $imagePreview.src = imgSrc;
+    $textPreviews[0].value = title;
+    $textPreviews[1].value = text_1;
+    $textPreviews[2].value = text_2;
+  }
 }
 
 function showLoadingWithImage() {
@@ -92,9 +103,30 @@ $pageControl.addEventListener("change", (e) => {
   if (page === "polaroids") {
     $submitButton.setAttribute("name", "polaroids");
     $formPolaroids.classList.add("d-block");
+    $formTheJourney.classList.add("d-none");
+    $formTitle.classList.remove("d-none");
+    $previewText3[0].classList.add("d-none");
+    $previewText3[1].classList.add("d-none");
+    $previewTitle[0].classList.remove("d-none");
+    $previewTitle[1].classList.remove("d-none");
   } else if (page === "record") {
     $submitButton.setAttribute("name", "record");
     $formRecord.classList.add("d-block");
+    $formTheJourney.classList.add("d-none");
+    $formTitle.classList.remove("d-none");
+    $previewText3[0].classList.add("d-none");
+    $previewText3[1].classList.add("d-none");
+
+    $previewTitle[0].classList.remove("d-none");
+    $previewTitle[1].classList.remove("d-none");
+  } else if (page === "the-journey") {
+    $submitButton.setAttribute("name", "the-journey");
+    $formTheJourney.classList.add("d-block");
+    $formTitle.classList.add("d-none");
+    $previewText3[0].classList.remove("d-none");
+    $previewText3[1].classList.remove("d-none");
+    $previewTitle[0].classList.add("d-none");
+    $previewTitle[1].classList.add("d-none");
   }
 });
 
@@ -102,9 +134,8 @@ $formPolaroids.addEventListener("change", async (e) => {
   resetData();
   let v = e.target.value;
   if (v !== "") {
-    showLoadingWithImage();
-    getData("polaroids").then((rawData) => {
-      console.log(rawData);
+    showLoadingWithoutImage();
+    getData("journey").then((rawData) => {
       let data = rawData.filter((member) => member.name === v);
       let { name, title, text_1, text_2, id } = data[0];
       $id.value = id;
@@ -124,7 +155,6 @@ $formRecord.addEventListener("change", async (e) => {
   if (v !== "") {
     showLoadingWithImage();
     getData("how_use").then((rawData) => {
-      console.log(rawData);
       let data = rawData.filter((sign) => sign.symbol === v);
       let { id, symbol, title, text_1, text_2 } = data[0];
       $id.value = id;
@@ -137,3 +167,18 @@ $formRecord.addEventListener("change", async (e) => {
     });
   }
 });
+
+function fetchTheJourney() {
+  resetData();
+
+  showLoadingWithImage();
+  getData("journey").then((rawData) => {
+    let data = rawData.filter((sign) => sign.symbol === v);
+    let { id, title, text_1, text_2, text_3 } = data[0];
+    $id.value = id;
+    showData({
+      text_1,
+      text_2,
+    });
+  });
+}
