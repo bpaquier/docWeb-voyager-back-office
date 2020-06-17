@@ -127,6 +127,7 @@ $pageControl.addEventListener("change", (e) => {
     $previewText3[1].classList.remove("d-none");
     $previewTitle[0].classList.add("d-none");
     $previewTitle[1].classList.add("d-none");
+    fetchTheJourney();
   }
 });
 
@@ -174,11 +175,12 @@ function fetchTheJourney() {
   showLoadingWithImage();
   getData("journey").then((rawData) => {
     let data = rawData.filter((sign) => sign.symbol === v);
-    let { id, title, text_1, text_2, text_3 } = data[0];
+    let { id, text_1, text_2, text_3 } = data[0];
     $id.value = id;
     showData({
       text_1,
       text_2,
+      text_3
     });
   });
 }
