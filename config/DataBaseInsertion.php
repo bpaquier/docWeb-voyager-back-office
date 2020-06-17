@@ -112,7 +112,7 @@ class DataBaseInsertion {
         strlen($this->text_2) > 0 ? $newText_2 = $this->text_2  : $newText_1 = $infos['text_2'];
         strlen($this->text_3) > 0 ? $newText_3 = $this->text_3  : $newText_2 = $infos['text_3'];
 
-        $stmt = $pdo->prepare('UPDATE polaroids
+        $stmt = $pdo->prepare('UPDATE journey
       SET  text_1 = :text_1, text_2 = :text_2, text_3 = :text_3
       WHERE id = :id');
         $stmt->execute(array(
