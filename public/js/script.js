@@ -174,8 +174,7 @@ function fetchTheJourney() {
 
   showLoadingWithImage();
   getData("journey").then((rawData) => {
-    let data = rawData.filter((sign) => sign.symbol === v);
-    let { id, text_1, text_2, text_3 } = data[0];
+    let { id, text_1, text_2, text_3 } = rawData[0];
     $id.value = id;
     showData({
       text_1,
