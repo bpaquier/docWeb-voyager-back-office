@@ -1,4 +1,4 @@
-const URL_API = "https://custom-pcvp.frb.io/query";
+const URL_API = "https://custom-76fy.frb.io/query";
 
 const MEMBERS_IMGS = {
   annDruyan: "./assets/ann_druyan.jpg",
