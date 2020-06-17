@@ -55,5 +55,5 @@
     <textarea name="text-3" class="form-control inputs" rows="3"></textarea>
   </div>
 <!-------------------------------------------->
-  <button type="submit" id="submit" name="record" class="btn btn-primary">Submit</button>
+  <button type="submit" id="submit" name="the-journey" class="btn btn-primary">Submit</button>
 </form>
