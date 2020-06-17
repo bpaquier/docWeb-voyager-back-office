@@ -18,11 +18,11 @@ if(isset($_POST['record']) || isset($_POST['polaroids']) || isset($_POST['the-jo
     $text_2 = htmlspecialchars($_POST['text-2']);
     $text_3 = htmlspecialchars($_POST['text-3']);
 
-    print_r($_POST);
+
 
     $insert = new DataBaseInsertion($id, $title, $text_1, $text_2, $text_3);
 
-    /*if (isset($_POST['record'])) {
+    if (isset($_POST['record'])) {
         $insert->connect();
         $insert->addOnTableUse();
         addFlash('success', 'Post changed with success');
@@ -37,7 +37,7 @@ if(isset($_POST['record']) || isset($_POST['polaroids']) || isset($_POST['the-jo
         $insert->connect();
         $insert->addOnTableJourney();
         addFlash('success', 'Post changed with success');
-    }*/
+    }
 unset($_POST);
 }
 
