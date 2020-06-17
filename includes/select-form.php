@@ -50,9 +50,9 @@
     <textarea name="text-2" required class="form-control inputs" rows="3"></textarea>
   </div>
    <!-- FORM THE JOURNEY, INITAL STATE = DISPLAY NONE -->
-<div class="form-group" id="form-the-journey">
+    <div class="form-group" id="form-the-journey">
     <label for="text-3">Text 3</label>
-    <textarea  required name="text-3" class="form-control inputs" rows="3"></textarea>
+    <textarea name="text-3" class="form-control inputs" rows="3"></textarea>
   </div>
 <!-------------------------------------------->
   <button type="submit" id="submit" name="record" class="btn btn-primary">Submit</button>
