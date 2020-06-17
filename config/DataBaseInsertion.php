@@ -43,7 +43,7 @@ class DataBaseInsertion {
         }
     }
 
-    public function addOnTableUse():void {
+    public function addOnTableUse():bool {
         $pdo = $this->pdo;
 
         $prevInfos = $pdo->prepare('SELECT * FROM how_to_use_it WHERE id = :id');
@@ -66,6 +66,12 @@ class DataBaseInsertion {
             'text_2' => $newText_2 ,
         ));
 
+        if(!$stmt) {
+            return false;
+        } else {
+            return true;
+        }
+
         /*
         $pdo = $this->pdo;
         $req = $pdo->prepare('INSERT INTO users (name, password) VALUES (:name, :pass)');
@@ -76,7 +82,7 @@ class DataBaseInsertion {
 
     }
 
-    public function addOnTableTeam():void {
+    public function addOnTableTeam():bool {
         $pdo = $this->pdo;
 
         $prevInfos = $pdo->prepare('SELECT * FROM polaroids WHERE id = :id');
@@ -98,6 +104,12 @@ class DataBaseInsertion {
             'text_1' => $newText_1,
             'text_2' => $newText_2 ,
         ));
+
+        if(!$stmt) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public function addOnTableJourney():bool {
@@ -123,8 +135,6 @@ class DataBaseInsertion {
                 'text_2' => $newText_2 ,
                 'text_3' => $newText_3 ,
             ));
-
-
 
             if(!$stmt) {
                 return false;

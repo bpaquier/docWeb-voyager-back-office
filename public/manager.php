@@ -24,13 +24,23 @@ if(isset($_POST['record']) || isset($_POST['polaroids']) || isset($_POST['the-jo
 
     if (isset($_POST['record'])) {
         $insert->connect();
-        $insert->addOnTableUse();
-        addFlash('success', 'Post changed with success');
+        $isInsered = $insert->addOnTableUse();
+
+        if($isInsered){
+            addFlash('success', 'Post changed with success');
+        } else {
+            addFlash('danger', 'Error when connecting with database');
+        }
 
     } elseif (isset($_POST['polaroids'])) {
         $insert->connect();
-        $insert->addOnTableTeam();
-        addFlash('success', 'Post changed with success');
+        $isInsered = $insert->addOnTableTeam();
+
+        if($isInsered){
+            addFlash('success', 'Post changed with success');
+        } else {
+            addFlash('danger', 'Error when connecting with database');
+        }
 
     } elseif (isset($_POST['the-journey'])) {
         $insert->connect();
