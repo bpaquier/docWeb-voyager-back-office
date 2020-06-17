@@ -35,6 +35,11 @@ composer install
 Composer - [documentation](https://getcomposer.org/doc/)  
 Slim - [documentation](http://www.slimframework.com/)
 
+## 🔗 Related repositories
+[Front-end](https://github.com/RedaHamouche/WebDocVuejs)  
+[Back-end / API](https://github.com/bastien17-dev/docWeb-voyager-back-end)
+
+
 ## 👥 Contributers
 
 Bastien Paquier - [bastien17-dev](https://github.com/bastien17-dev)  
