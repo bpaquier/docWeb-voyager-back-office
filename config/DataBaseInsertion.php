@@ -102,7 +102,7 @@ class DataBaseInsertion {
     public function addOnTableJourney():void {
         $pdo = $this->pdo;
 
-        $prevInfos = $pdo->prepare('SELECT * FROM Journey WHERE id = :id');
+        $prevInfos = $pdo->prepare('SELECT * FROM journey WHERE id = :id');
         $prevInfos->execute([
             'id' => $this->id
         ]);
