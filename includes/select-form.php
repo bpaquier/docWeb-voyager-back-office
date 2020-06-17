@@ -2,9 +2,9 @@
 <div class="form-group">
     <label for="page">Select page</label>
     <select  name="page" class="form-control" id="page-control">
-      <option value="the-journey">The Journey</option>
-      <option value="record">Record</option>
-      <option value="polaroids">Polaroids</option>
+      <option value="the-journey">The Origin</option>
+      <option value="record">Symbols</option>
+      <option value="polaroids">The Team</option>
     </select>
   </div>
 <!-- FORM POLAROID, INITAL STATE = DISPLAY NONE -->
