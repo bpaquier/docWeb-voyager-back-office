@@ -108,9 +108,9 @@ class DataBaseInsertion {
         ]);
         $infos = $prevInfos->fetch();
 
-        strlen($this->text_1) > 0 ? $newText_1 = $this->title  : $newText_1 = $infos['text_1'];
-        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2  : $newText_2 = $infos['text_2'];
-        strlen($this->text_3) > 0 ? $newText_3 = $this->text_3  : $newText_3 = $infos['text_3'];
+        strlen($this->text_1) > 0 ? $newText_1 = $this->text_1 : $newText_1 = $infos['text_1'];
+        strlen($this->text_2) > 0 ? $newText_2 = $this->text_2 : $newText_2 = $infos['text_2'];
+        strlen($this->text_3) > 0 ? $newText_3 = $this->text_3 : $newText_3 = $infos['text_3'];
 
         $stmt = $pdo->prepare('UPDATE journey
       SET  text_1 = :text_1, text_2 = :text_2, text_3 = :text_3
