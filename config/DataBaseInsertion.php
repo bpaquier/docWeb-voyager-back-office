@@ -71,15 +71,6 @@ class DataBaseInsertion {
         } else {
             return true;
         }
-
-        /*
-        $pdo = $this->pdo;
-        $req = $pdo->prepare('INSERT INTO users (name, password) VALUES (:name, :pass)');
-        $req->execute([
-            "name" => 'Manager',
-            "pass" => password_hash('voyager', PASSWORD_DEFAULT)
-        ]);*/
-
     }
 
     public function addOnTableTeam():bool {
